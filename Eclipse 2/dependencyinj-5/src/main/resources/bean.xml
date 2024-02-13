@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Student -->
+    <bean id="s1" class="spel.Student">
+    <property name="name" value="Jammer"></property>
+    <property name="marks" value="100"></property>
+    </bean>
+    
+    <bean id="s2" class="spel.Student">
+    <property name="name" value="Mouli"></property>
+    <property name="marks" value="75"></property>
+    </bean>
+    
+    <bean id="s3" class="spel.Student">
+    <property name="name" value="Rishi"></property>
+    <property name="marks" value="5"></property>
+    </bean>
+    
+    <bean id="s4" class="spel.Student">
+    <property name="name" value="Jack"></property>
+    <property name="marks" value="25"></property>
+    </bean>
+    
+    <bean id="s5" class="spel.Student">
+    <property name="name" value="John"></property>
+    <property name="marks" value="75"></property>
+    </bean>
+    
+    <!-- Assigning value to ArrayList -->
+    <bean class="java.util.ArrayList" id="studentList">
+	    <constructor-arg>
+	    	<list>
+	    		<ref bean="s1"></ref>
+	    		<ref bean="s2"></ref>
+	    		<ref bean="s3"></ref>
+	    		<ref bean="s4"></ref>
+	    		<ref bean="s5"></ref>
+	    	</list>
+	    </constructor-arg>
+    </bean>
+    
+    <!-- filter the data -->
+    <bean class="spel.StudentListAccessor" id="studAccObj">
+    	<property name="thirdStudentInList" value="#{studentList[3]}"></property>
+    	<property name="failedStudent" value="#{studentList.?[marks Lt 50]}"></property>
+    	<property name="studentNames" value="#{studentList.![name]}"></property>
+    </bean>
+
+</beans>

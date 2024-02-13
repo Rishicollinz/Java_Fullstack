@@ -1,0 +1,32 @@
+package Training;
+
+public class ex92 {
+	
+
+}
+class Trainer implements Runnable{
+	void printTable(int n) {
+		for(int i=1;i<11;i++) {
+			System.out.println(n*i);
+			try {
+				Thread.sleep(1000);
+			}
+			catch(InterruptedException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+}
+class Ece{
+	Trainer t=new Trainer();
+	Ece(Trainer t){
+		this.t=t;
+	}
+	public void run() {
+		t.printTable(5);
+	}
+	
+}
+class Cse{
+	
+}

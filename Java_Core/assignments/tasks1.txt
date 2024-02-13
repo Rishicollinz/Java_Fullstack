@@ -1,0 +1,19 @@
+Task: 1 (apply some conditions let's say rollNo not String
+Enter the rollNo: 122
+Enter the name : sai
+Enter the age: 22
+
+ur rollNo is: 122
+ur name is: sai
+ur age is: 22
+
+Task: 2 (give some conditions)
+
+Enter the sub1 mark: 50 //100
+Enter the sub2 mark: 55
+Enter the sub3 mark: 70
+Enter the sub4 mark: 70
+Enter the sub5 mark: 70
+tot : xxxx
+avr : xxxx
+res : pass / fail

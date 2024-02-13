@@ -1,0 +1,24 @@
+package com.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+@RequestMapping(value="/")
+public class MyController {
+	
+	@RequestMapping(value="/",method=RequestMethod.GET)
+	public ModelAndView getData() {
+		return new ModelAndView("welcome","msg","called");
+	}
+	
+	@RequestMapping(value="/{username}/{age}",method=RequestMethod.GET)
+	public ModelAndView getData(@PathVariable("username")String userName,@PathVariable("age")int age,@RequestParam("gender")String gender) {
+		return new ModelAndView("welcome","msg","called");
+	}
+	String userName,int age,String gender
+}

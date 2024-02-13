@@ -1,0 +1,252 @@
+Three important things in DB:
+->Driver 
+->Driver manager
+->Driver class
+
+Package:
+========
+
+->A package is a folder.
+
+->suppose a java file has 10 classes, then we have to check the entire file to find one class.
+
+->To solve that, 
+    ->Each java file has 1 class.
+    ->Then group of these files can be in a package.
+    ->we can easily search a class in a package.
+
+=>Suppose a package contains multiple classes inside it via java files,
+    ->suppose there may be multiple time classes,
+    ->so our JVM will be confused.
+
+    ->To solve that, we will use inner package like java.util.Scanner;
+
+Package name:
+=============
+
+->Name of the package should be unique.
+->There is a thing always unique in the organization(i.e Domain);
+->Create a package name with the domain name of the company.
+Eg:
+(com.google.classes)
+
+Packages:
+    ->Packages are important interms of maintaining a clear hierarchical file structure.
+    ->An ideal package name always starts with the domain name.
+    ->Creating a package helps in solving the name conflict.
+    ->It helps in locating a class effectively and efficiently.
+
+    E.g: Date : Data has two classes, 
+                import java.util.Date; 
+                import java.sql.Date;
+
+Java Files:
+    ->Similar java files are clubed in a package.
+    ->Each java file is constructed such that they have only one class.
+    
+Mysql connections:
+
+->we use two things to connect:
+    ->Api-which is connected through online only;
+        ->It generates a token through which we can modify the db until that token is expired.
+        ->This is online only.
+
+    ->Drivers-for connecting through offline.
+
+->For mysql,we use mysql workbench;
+Installation:
+1)Download mysql workbench.
+2)Download mysql-connector jar file from here : "https://jar-download.com/artifacts/mysql/mysql-connector-java/8.0.11/source-code"
+3)Download mysql installer- form 1st link:"https://downloads.mysql.com/archives/installer/"
+=============================================
+->Create a mysql connection in workbench;
+
+->Create a database,use that database,create a table, show that table in queries;
+create database Registration;
+use Registration;
+create table signup(id int primary key auto_increment,username varchar(30),password varchar(30));
+select * from signup;
+
+->Insert values into table;
+INSERT INTO `signup`(`id`, `username`, `password`) VALUES ('1','Rishi','passwords')
+
+project name->right click->Build path->configure build path->Libraries->class path->Add external jar
+
+workbench code upto 27/4/23:
+create database Registration;
+use Registration;
+create table signup(id int primary key auto_increment,username varchar(30),password varchar(30));
+select * from signup;
+INSERT INTO `signup`(`id`, `username`, `password`) VALUES ('1','Rishi','passwords');
+INSERT INTO `signup`(`id`, `username`, `password`) VALUES ('','[value-2]','[value-3]');
+select * from signup;
+
+Reset the password in the ATM code:
+refer:try\src\ex1_ATM.java
+======================================================================================================>
+<28/04/23>
+Maven:
+file->new->project->maven->Maven project:
+default
+check skip archtype(no dependency) ->next-> groupid:com.rishikesh.training
+artifact id:sql connectivity test
+->catalog:Internal               |
+Filter:quickstart                |->These steps for without skiping archtype(meaning with dependencies);
+select maven-archtype-quickstart;|
+->group id:unique
+artifact id:unique->finish
+
+//Maven proj with insert delete,etc...
+//how to add mysql connector jar:
+go to maven repositary in google, then search for java mysql jdbc connector.
+choose mysqlconnector/j
+->choose a version and copy the implementation code.
+->add that dependency in pom.xml in maven project.
+Refer:c:/users/Rishi/Eclipse-workspace/sqlconnectivitywithdependencies.
+
+=============================================================================================
+<2/5/23>
+DDL:
+    ->Data definition language.
+    Operations:
+    ->create 
+    ->delete.
+    ->alter.
+    ->drop
+
+    ->Use these Operations for table,index,view,procedure.
+
+    *.Always keep the sql editor in not safe mode:
+        SET SQL_SAFE_UPDATES=0;
+        ========================
+
+DDL:
+
+Create table:
+
+    create table mouli(id int(10),username varchar(15),pin int(4));
+
+    select * from mouli;
+
+Alter table:
+    ALTER TABLE mouli ADD Email varchar(255);
+
+    -Rename:
+        ALTER TABLE table_name
+        RENAME TO new_table_name;
+        ->you can't rename a database;
+
+Drop table:
+    drop table moudlis;
+
+Truncate table:
+    truncate table mouli;
+
+DML:
+
+Insert table:
+    Inserting values from one table to another table;
+
+    Insert into table2(id,username,pin) select id,username,pin from table1 where id=1;
+
+Update:
+    UPDATE `mouli` SET `username`='rishi',`pin`='12345',`Email`='rishi@gmail.com' WHERE id=1;
+
+Delete:
+    DELETE FROM mouli WHERE id=121;
+
+DQL:
+    Select:
+    select * from mouli;
+
+------------------------------------------------------------------------------------
+
+User creation in sql database:
+==============================
+
+The user account details in MySQL contains two information – username and host from which the
+user is trying to connect in the format username@host-name. 
+
+In local server username is 'admin@localhost';
+
+we can create a user using this syntax:
+
+    CREATE USER user_account IDENTIFIED BY password; 
+
+    CREATE USER rishi@localhost IDENTIFIED BY 'abcd';
+
+->To check the permissions of the user:
+    SHOW GRANTS FOR user-account;
+    SHOW GRANTS FOR rishi@localhost;
+
+DCL:
+1)create a user, grant or revoke permission in root.
+2)create a new connection for the user in workbench with password;
+3)check the operations for allowed privileges.
+
+refer:https://www.geeksforgeeks.org/mysql-grant-revoke-privileges/
+
+Grant:
+    Using the Create User Statement only creates a new user but does not grant
+    any privileges to the user account. Therefore to grant privileges to a user account, 
+    the GRANT statement is used. 
+    
+    Syntax:
+    GRANT privileges  ON Users TO '*'@'localhost;
+
+Revoke:
+
+    syntax:
+
+    revoke SELECT  ON jammer From 'rishi'@'localhost';
+
+
+TCL:
+Refer:ex3.sql
+    TCL commands can only use with DML commands like  INSERT, DELETE and UPDATE only.
+    These operations are automatically committed in the  database that's why they cannot be used while creating  tables or dropping them.
+    Here are some commands that come under TCL:
+        ->COMMIT
+        ->ROLLBACK
+        ->SAVEPOINT
+
+    Procedure:
+
+        ->BEGIN TRANSACTION: It indicates the start point of an explicit or local 
+        transaction. 
+        Syntax:
+            START TRANSACTION;
+
+        ->DO A OPERATION LIKE UPDATE,DELETE ETC...
+
+        ->But until the commit statement, the operation is not saved, so it can be rollback.
+Rollback:
+=========
+        ex3.sql:
+
+        ->In line 8, data is deleted but not committed, so it can be rolled back to previous state;
+
+Commit:
+=======
+        ex4.sql:
+
+        ->In line 5,Commit statement will save the changes to the transaction.
+
+SAVEPOINT:
+=========
+
+->save point is like a checkpoint, create a checkpoint before and after a checkpoint and
+we can rollback to any savepoint;
+refer:ex5.sql
+        
+
+        
+    
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+package controller;
+
+import org.springframework.web.servlet.ModelAndView;
+
+public class HelloWorldController {
+	
+	public ModelAndView disp() {
+		return new ModelAndView("welco")
+	}
+}

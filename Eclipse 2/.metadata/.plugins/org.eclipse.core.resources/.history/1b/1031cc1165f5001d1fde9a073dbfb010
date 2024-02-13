@@ -1,0 +1,9 @@
+package emp;
+
+public interface IEmployeeDao {
+	Employee viewEmployee(String mtd);
+	void addEmployee(Employee employee);
+	void updateEmployee(Employee employee);
+	
+	
+}

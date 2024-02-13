@@ -1,0 +1,21 @@
+package Training;
+
+
+interface printable{  
+	void print();
+	void display(); 
+}  
+class ex96 implements printable{  
+	public void print(){
+		System.out.println("Hello");
+	}  
+	public static void main(String args[]){  
+		ex96 obj = new ex96();  
+		obj.print();  
+	}
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		
+	} 
+}  

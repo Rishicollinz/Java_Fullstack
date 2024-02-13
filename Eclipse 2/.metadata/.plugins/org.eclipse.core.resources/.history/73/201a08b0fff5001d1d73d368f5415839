@@ -1,0 +1,14 @@
+package com;
+
+public class UserDao {
+	private String url="jdbc:mysql://localhost:3306/db3";
+	private String username="root";
+	private String password="";
+	
+	private static final String INSERT_USER_SQL="Insert into userreg"+" (name,email,country) VALUES "+
+	"(?,?,?)";
+	
+	private static final String SELECT_USER_BY_ID="select id,name,email,country from userreg where id=?";
+	
+	
+}

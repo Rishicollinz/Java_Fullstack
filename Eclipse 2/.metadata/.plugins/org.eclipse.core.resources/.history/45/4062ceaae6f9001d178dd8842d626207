@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="aop2_pointcut">
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <property name="context-root" value="aop2_pointcut"/>
+        <property name="java-output-path" value="/aop2_pointcut/target/classes"/>
+    </wb-module>
+</project-modules>

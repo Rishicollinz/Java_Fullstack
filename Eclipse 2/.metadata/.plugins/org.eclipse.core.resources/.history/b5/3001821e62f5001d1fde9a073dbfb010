@@ -1,0 +1,63 @@
+package emp;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="empid")
+	int empId;
+	
+	@Column(name="name")
+	String name;
+	
+	@Column(name="department")
+	String department;
+	
+	@Column(name="role")
+	String role;
+	
+	@Column(name="project")
+	String project;
+	
+	@Column(name="doj")
+	Date doj;
+	
+	@Column(name="email")
+	String email;
+	
+	@Column(name="dob")
+	Date dob;
+	
+	@Column(name="bloodgroup")
+	String bloodgroup;
+	
+	@Column(name="address")
+	String address;
+	
+	@Column(name="contact")
+	String contact;
+	
+	@Column(name="status")
+	String status;
+	
+	public Employee() {
+		
+	}
+	
+	public Employee() {
+		
+	}
+	
+	
+	
+	
+
+}

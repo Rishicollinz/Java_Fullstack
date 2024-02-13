@@ -1,0 +1,23 @@
+package emp;
+
+import java.util.*;
+
+
+public class Access {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Choose an option:");
+		System.out.println("1.View employee\n2.Add employee\n3.Update Employee Detail\n4.delete Employee\n5.Fetch empolyee Detail\n6.Exit");
+		
+		IEmployeeDao empDao=new EmployeeDao();
+//		Employee emp=new Employee("dRishi","cdse","devops","webops","25/02/2003","rishi@gmail","25/01/2003","b+","sekkadi","contact","avail");
+//		empDao.addEmployee(emp);
+		List<Employee> e1=empDao.getAllEmployee();
+		for(Employee e:e1) {
+			System.out.println(e);
+		}
+
+	}
+
+}

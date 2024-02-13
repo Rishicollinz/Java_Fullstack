@@ -1,0 +1,27 @@
+task  :1
+we have data of 3 students, and their scores of 4 subjects in two semesters.
+Student 1:-
+Semester 1:
+87 79 91 88 
+Semester 2:
+92 80 86 91 
+Student 2:-
+Semester 1:
+80 75 66 74 
+Semester 2:
+81 89 70 83 
+Student 3:-
+Semester 1:
+98 88 94 95 
+Semester 2:
+99 93 96 97 
+===========================================
+task  :2
+
+1 2 3
+4 5 6
+7 8 9
+Enter the no: 1 => 0,0 0A
+Enter the no: 8 => 2,1 2B
+
+

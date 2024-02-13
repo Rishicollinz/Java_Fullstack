@@ -1,0 +1,13 @@
+package test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import com.Operation;
+public class OperationTest {
+	
+	@Test
+	public void addTest() {
+		int actualResult=Operation.add(1,2);
+		Assertions.assertEquals(13,actualResult);
+	}
+}

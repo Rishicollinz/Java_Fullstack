@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="junit1" project="junit1" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="test.OperationTest" time="0.095" displayname="OperationTest" uniqueid="[engine:junit-jupiter]/[class:test.OperationTest]">
+    <testcase name="addTest1" classname="test.OperationTest" time="0.016" displayname="addTest1()" uniqueid="[engine:junit-jupiter]/[class:test.OperationTest]/[method:addTest1()]"/>
+    <testcase name="addTest" classname="test.OperationTest" time="0.001" displayname="addTest()" uniqueid="[engine:junit-jupiter]/[class:test.OperationTest]/[method:addTest()]"/>
+    <testsuite name="testAddition(test.OperationTest)" time="0.029" displayname="testAddition(int, int, int)" parameters="int,int,int" uniqueid="[engine:junit-jupiter]/[class:test.OperationTest]/[test-template:testAddition(int, int, int)]">
+      <testcase name="testAddition" classname="test.OperationTest" time="0.029" dynamicTest="true" displayname="[1] 1, 2, 3" parameters="int,int,int" uniqueid="[engine:junit-jupiter]/[class:test.OperationTest]/[test-template:testAddition(int, int, int)]/[test-template-invocation:#1]"/>
+      <testcase name="testAddition" classname="test.OperationTest" time="0.001" dynamicTest="true" displayname="[2] 3, 4, 7" parameters="int,int,int" uniqueid="[engine:junit-jupiter]/[class:test.OperationTest]/[test-template:testAddition(int, int, int)]/[test-template-invocation:#2]"/>
+    </testsuite>
+  </testsuite>
+</testrun>

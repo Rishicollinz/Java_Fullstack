@@ -1,0 +1,8 @@
+package test;
+import com.Operation;
+public class OperationTest {
+	public void addTest() {
+		int actualResult=Operation.add(1,2);
+		
+	}
+}

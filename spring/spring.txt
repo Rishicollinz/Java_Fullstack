@@ -1,0 +1,764 @@
+<8/5/23>
+
+*.Maven is used for adding additional dependencies easily.
+*.Like just calling the jar file in dependency.
+
+*.we already use default quick type archtype.
+
+*.Don't use underscore,hypen-,space in filename, recommended use lowercase.
+
+New maven project window:
+*.Create new maven project.
+    ->Group id:Domain package.
+    ->Artifact id:project name
+    ->Version:
+        ->snapshot(development is in process)
+        ->rc(bug is tested)
+        ->number(Everything is done)
+    ->Packaging:
+        ->jar:standalone app in executable java file.
+        ->pom:object model.
+        ->war:for web application.
+
+*.After creation:
+->src/main/java: user written java code;
+
+->src/main/resources:
+    ->when two applications communicate together, the data communication happens through file
+    format xml or json;
+    
+    ->For connecting two apps, we use api , this api returns json or xml. This file is stored
+    in resource folder. This is known as json/xml parsing.
+
+->src/test/java:
+    ->For testing java file;
+
+->src/test/resources:
+    ->For testing resources;
+
+->Target contains where it should work like that.
+
+Properties:
+    simplicity of download, testing.
+
+*.Coupling:
+    ->The interdependency of each modules or entities of a program.
+
+    ->How many work is required for implementing a change.
+
+    Types:
+        ->Tight coupling: Lots of dependencies between modules.
+        
+        ->Loose Coupling: Dependencies is low.
+
+
+why is Loose coupling:
+    ->Business requirement change.
+    ->Technical change.
+    ->Migration.
+
+If maven doesn't work:
+    *.right click on maven project->maven->update project->force update;
+
+Tight coupling:
+================
+package com.game;
+
+public class GameManager {
+	Wrestling w;
+	Shooter s;
+	public GameManager(Wrestling w){
+		this.w=w;
+	}
+	public GameManager(Shooter s){
+		this.s=s;
+	}
+	public String toString() {
+		return "Wrestling";
+    }
+	
+}
+AppManager:
+==========
+package com.game;
+
+public class AppManager {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Wrestling wrs=new Wrestling();
+		Shooter s=new Shooter();
+		GameManager g=new GameManager(wrs);
+		GameManager ss=new GameManager(s); 
+		
+		
+		
+	}
+
+}
+Wrestling:
+===========
+package com.game;
+
+public class Wrestling {
+	void run() {
+		System.out.println("Wrestling invoked");
+	}
+	void up() {
+		System.out.println("Grapple");
+	}
+	void down() {
+		System.out.println("Release");
+	}
+	void left() {
+		System.out.println("Punch");
+	}
+	void right() {
+		System.out.println("Kick");
+	}
+}
+
+Shooter:
+=======
+package com.game;
+
+public class Shooter {
+	void run() {
+		System.out.println("Shooting invoked");
+	}
+	void up() {
+		System.out.println("Jump");
+	}
+	void down() {
+		System.out.println("Down");
+	}
+	void left() {
+		System.out.println("shoot");
+	}
+	void right() {
+		System.out.println("Aim");
+	}
+}
+
+
+Here Jvm->App->Game Manager------>Wrestling
+                   |
+                   ------->Shooter;
+
+*.It is tight coupling.
+
+*.First method of loosening a coupling is using interface:
+
+Now,
+    Jvm->App->Game Manager->Interface------>Wrestling
+                            |
+                            ------->Shooter;
+    
+->create interface join it with game manager and wresting and shooting;
+refer:com.game;
+//checkout
+cash,upi,card
+->three pay method;
+checkout()
+upi->getupiid
+credit->creditpaymentaccepted;
+debit->Insufficient balance
+refer:com.checkout;
+
+Spring:
+->mvc
+->boot
+
+*.Spring creates object itself;
+
+Spring concepts:
+================
+1.Injection:
+    ->Dependency Injection.:
+        Dependency we create and give inside;
+    ->Object Injection.
+        Object we create and give inside;
+    
+    Bean:
+    *.From here, object is known as bean;
+    *.Bean injection;
+
+    How does bean injection is created:
+
+    ->By bean factory:
+        ->Application context extends it.
+    ->Both are in IOC:
+        1.Bean Factory;
+        2.Application Context;
+
+    ->we link this using configuration:
+        ->Internet slow;
+        
+Bean setup:
+============
+step-1: Java source file should be set. ->in src/main/java
+step-2: create a xml file ->in src/main/resource
+step-3: Set bean dependency ->pom.xml
+step-4: Configure xml schema -> in xml file
+step-5: Configure bean
+
+Bean Injection:
+==============
+1.Create a maven project;
+
+2.Main/Java ->Student class->pojo class(only getters and setters)
+
+3.Student class(id,name,getter,setter);
+
+4.main/resource->new->xml file->bean.xml
+
+//search for spring context maven dependency in google and get dependency code and paste it
+in pom.xml
+
+5.
+
+//check spring bean schema->first link(docs.spring.io/...):
+    ->copy:The equivalent file in the XML Schema-style would be…​
+    
+6.pom 
+
+Maven :
+=====
+
+1.online repository;
+2.offline/remote/Local repository;
+
+*.First maven checks remote repository, if not here, then checks in online repository.
+*.So we can test our project, even in offline if all jar are in remote.
+
+*.Once a project is configured, maven dups in remote repository;
+
+Resolution order: local repository->online repository;
+=========================================================================================
+<10/5/23>
+Spring core concepts:
+1.Dependency injection- object injection;
+Refer:dependencyinj-3
+2.SPEL-Spring Expression Language:
+
+syntax:#{spel expressiong}
+    Inbuilt function like formula function in xml file.
+
+    *.For inbuilt function, we can inject the bean directly without a variable:
+    E.g: writing a bean for a inbuilt class.
+    refer:dependencyinj-4
+
+*.Using spel to filter the data and getting specific value:
+refer:dependencyinj-5;
+
+Regular expression:
+Email validation:
+
+->#{stuobj.email matches '[a-z0-9]+@+(.+)$'}
+===========================================================================================
+<11/5/23>
+Using perimeter formula in dependencyinj-7;
+
+getting value from another function:
+T(java.Long.Math).random(): this t means typecasting values based on the inbuilt packages;
+refer:dependencyinj-8;
+
+*.Copying one collection from one place to another using beans:
+*.This is known as book library problem:
+separate books -> grouped books -> adding it to library.
+refer:dependencyinj-9;
+
+*.what is SPEL:
+    ->Spel is a powerful expression language that supports querying and manipulating an 
+    object graph at runtime.
+
+Auto-wiring:
+    ->connecting automatically between two class or something.
+
+    ->we use auto-wiring in annotations in spring;
+================================================================================================
+<12/05/23>
+AutoWiring:
+   -> AutoWiring is the method of automatically indentifying relavant bean and injecting it accordlingly.
+   -> AutoWiring is popularly done by means of constructor
+        1) Byname
+        2) Bytype 
+   -> To enable AutoWiring is to be implemented along with the bean class
+
+   refer:dependencyinj-10;
+
+   autowire="byName"
+   refer:dependencyinj-11;
+
+   ->autowire="byType"
+   refer:dependencyinj-12;
+
+*.Design pattern:
+refer:https://www.baeldung.com/spring-framework-design-patterns
+    ->there is design tab in xml file: for showing design table- it helps to understand code.
+    ->The way we design the software
+
+    ->A design pattern is a reliable solution to the common occuring problem in software 
+    design.
+
+    Types:
+        ->Singleton pattern
+        ->Factory Method pattern
+        ->Proxy pattern
+        ->Template pattern
+    ->singleton pattern:
+        It is a mechanism that ensures only one instance of an object exists per application.
+        This is useful when managing shared resources 
+    ->Factory Method pattern:
+        The factory method pattern entails a factory class , where it generates objects 
+        based on the context.
+    ->Proxy pattern:
+        proxy pattern enables the class to do functions of another class like a proxy.
+    ->Template pattern:
+        As the name suggests, template pattern has certain templates like jdbc, database 
+        connection which has abstract methods where we can write code.
+
+*.DAO design pattern:
+refer:https://www.digitalocean.com/community/tutorials/dao-design-pattern
+
+    ->DAO stands for Data Access Object. 
+    ->DAO Design Pattern is used to separate the data persistence logic in a separate layer. 
+    ->This way, the service remains completely in dark about how the low-level operations to 
+    access the database is done. 
+    ->This is known as the principle of Separation of Logic.
+
+DAO design pattern:
+    With DAO design pattern, we have following components on which our design depends:
+
+        ->The model which is transferred from one layer to the other.
+        ->The interfaces which provides a flexible design.
+        ->The interface implementation which is a concrete implementation of the persistence logic.
+
+        The end user doesn't get all the path of the data. so that hacking is not simple;
+
+        ->It has a signature structure of the packages.
+
+    ->simple database connectivity in jdbc with dao;
+
+    Important:
+    1)*.com.model:It contains this,
+    ->The database table name and the class name should always be same.
+    ->Every Properties of a class should be a column of a table.
+
+    ->Every column in a table should have a property in a class and it mayn't be otherwise.
+
+    2)*.com.dao: it contains interface with abstract methods;
+
+    3)*.com.daoimpl: it contains the implementation of the interface;
+
+    4)*.util package: It contains only gateway credentials like username,password,url,driverclass in
+    final like connecting to database;
+    refer:
+=================================================================================================>
+<13/5/23>
+1.Implement dao pattern for employee.
+refer:jdbcdao-13
+
+2.Implement of jdbc template;
+
+we normally use result set in java code for data, but it is more complicated and tough for
+more views.
+
+->so in jdbc template we use mapRow from spring-jdbc jar file;
+
+->JdbcTemplate class from daoImplementation:
+    This sets the connection,error handling and all common errors depending on the connection;
+    ->it also simplifies the insert,delete and update part.
+
+<15/5/23-17/5/23>leave
+============================================================================================
+
+<18/5/23>
+JSP:
+1)square
+refer:jsp1
+2)date and time
+refer:jsp2
+3)insert,check login credientials,show all data
+refer:jsp3
+
+tags:
+Import library: <%@ page import=""%>
+Global declaration:<%! int a;%>
+
+JSTL:
+    Basic java in html tags
+
+Standard Syntax:
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+XML Syntax:
+     <anyxmlelement xmlns:c="http://java.sun.com/jsp/jstl/core" />
+
+     *.This prefix is used as a tag for functions
+
+     refer:jstl core tags;
+
+     1)c:set to set variable.
+     2)c:out to display output.
+
+====================================================================================================
+<22/05/23>
+
+MVC(Model view controller):
+    ->Mvc is a design pattern which helps in layering the software as model(datae and pojus),
+    view and controller(servlet actions etc...);
+->It is a design pattern;
+
+Controller:
+->How does this page works and behaviour of the website;
+
+->MVC gives low coupling. so it is used;
+
+    |------->|      |------->|
+model       controller      view
+    |<-------|      |<-------|
+
+Normal controller: 
+    server will have separate controller connected to it;
+
+Dispatcher controller:
+    server will be connected to dispatcher controller and this controller will have all the
+    controller to it;
+
+refer:normal controller.png and dispatcher controller.png
+
+MVC controller:
+==============
+
+->Client requests to front controller; then 
+    ->Then this requests to request handler and it returns the controller respective to it;
+    ->The fc will request to controller and controller will send model with view;
+    ->The fc now has model and it request to view interface, and view interface will return 
+    the respective view to the fc;
+    ->Then the fc will send the response;
+
+Annotations:
+
+->@component- If we use this we don't need objects meaning it uses factory method,which 
+creates it own objects;
+
+->@web servlet- root of the website, used in servlet;
+
+->@controller- meaning it is a servlet page;
+
+->@request mapping- which resource should be mapped to what.
+
+
+Process of setting up mvc controller:
+Refer:mvccontroller in eclipse
+1)Mvc setup in eclipse:
+====================
+
+    ->maven project->dont use skip archtype
+    ->catelog=internal
+    ->filter(archtype)=webapp(Select and next)
+    ->groupid,artifactid and finish;
+
+    ->Give Y at console;
+
+    ->Build success means project setup success;
+
+2)server setup:
+================
+
+->configure build path on project
+->search targeted runtime on menu there;
+->select apache tomcat v9.0 and apply and close;
+
+3)Dependencies setup:
+======================
+
+->Go to pom.xml;
+->get spring-webmvc 4.3.9 dependency and paste it in pom.xml;
+
+maven Dependencies added in libraries of  java resources due to skipping default archtype;
+
+4)Add plugin in pom.xml if there is field error in pom.xml:
+===========================================================
+
+add this=>maven war plugin
+    <build>
+	  <plugins>
+		  <plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-war-plugin</artifactId>
+			   <version>3.3.2</version>
+		  </plugin>
+	  </plugins>
+    <finalName>mvccontroller</finalName>
+  </build>
+
+5)If compiler configuration error came 
+add this=>
+<build>
+  <plugins>
+    <plugin>    
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
+    </plugin>
+</plugins>
+  </build>
+
+
+=>Default running file for any mvc is index.jsp in webapp;
+
+6)If error came in index.jsp; dependencies arent imported here
+
+do this=>
+->configure build path->order and export;
+->check in mvccontroller/...,maven dependencies
+
+7)Change web.xml to this,
+=> xml mvc schema
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<web-app xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+ xmlns="https://java.sun.com/xml/ns/javaee"
+ xsi:schemaLocation="https://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+ id="WebApp_ID" version="3.0">
+
+<display-name>spring-mvc-first-example</display-name>
+
+</web-app>
+
+steps in project:
+================
+
+web.xml->front controller
+
+->create a view folder inside web-inf is not there;
+
+->create welcome.jsp in views folder;
+
+Default mapping name of front controller:
+
+servletname-servlet
+
+1)In web.xml:
+==========
+
+<servlet>
+	<servlet-name>dispatcher1</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>//check if this present in libraries
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>dispatcher1</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+
+
+from web.xml->front controller(dispatcher1.xml):
+xml code from mam whatsapp
+
+2)controller:
+-><context:component-scan base-package="com.sample.controller"/>
+
+->This is for specifying where all the controllers;
+
+*.Now we have to specify for view:
+
+    -><bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+    ->prefix denotes the folder from where we have to use files;
+    ->suffix denotes the extension of those files;
+
+    ->Here we used bean because the controller returns object;
+
+3)*.we now have to write controller files which is in java so use java resources->src/main/java
+    ->we created HelloWorldController:
+
+    A class with this=>
+
+        *.public ModelAndView disp() {
+		return new ModelAndView("welcome","msg","welcome to MVC!!");
+	}
+
+    *.The return type is ModelAndView because a controller returns model and view;
+
+    The declaration of ModelAndView =>
+        *.public ModelAndView(String viewName, String modelName, Object modelObject) {
+		this.view = viewName;
+		addObject(modelName, modelObject);
+	}
+
+    modelObject=>welcome to mvc
+    modelName(variable)=>msg
+    viewName(destination)=>welcome(file)
+
+    *.Now this is normal java file, to make it as servlet we use sterotype @Controller;
+
+4)*.Now we done controller, but we don't know which controller is which...
+    ->so we use request handler which says the needed controller;
+
+    use:@RequestMapping(value="/",RequestMethod.GET);
+
+    -> for / url, it will call this controller method;
+
+5)*.Now we use this msg in welcome.jsp:
+ use like this: <h1>${msg}</h1>
+
+
+
+==============================================================================================
+->we give -servlet for recognizing servlet by our maching.
+
+->we will see how to recognize -servlet without any -servelt(like dispatcher1-servlet);
+
+<23/5/23>
+
+@PathVariable:
+    reading data from the url;
+    two types reading:
+        ->@PathVariable:
+            {username}/{age}
+            rishi/20
+        ->@RequestParam:
+            ?k=2
+            ?gender=male
+
+1.In mvc1,for each url each page;
+
+2.In mvc2,sending data through url
+
+3.In mvc3,mvc6 sending data in url with map;
+
+4.In mvc4,sending data in url with form;
+
+5.In mvc5, dao implementation of mvc;
+
+===========================================
+AOP:
+    ->If we need to do some tasks repeatly, then aop has a set of code to execute that;
+
+    Eg:login etc...
+
+    ->AOP stands for Aspect oriented programming, key element of spring framework.
+    ->It provides spring framework.
+
+    ->AOP breaks the programming logic into separate parts called concerns.
+
+    ->It is implemented as normal maven project but with different annotations like 
+
+    Tags:
+    ->@Before
+    ->@After
+    ->@Before-each
+    ->@After-each
+
+    syntax:
+
+    @tag("execution(return-type package-name.class-name.method-name(..))")
+    @Before("execution(void sample.shoppingcart.checkout(..))")
+    -> .. means how many parameter
+
+    @Before("execution(* *.*.*(..))")
+
+    *.means all
+
+    Two dependency for aop:
+
+    <dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjrt</artifactId>
+	    <version>1.6.11</version>
+	    <scope>runtime</scope>
+	</dependency>
+	
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.6.11</version>
+	    <scope>runtime</scope>
+    </dependency>
+
+    spring dependency:
+
+    <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>6.0.9</version>
+	</dependency>
+
+    ->AnnotationConfigApplicationContext-This is needed in application context for running 
+    without any xml file;
+=============================================================================================
+<24/5/23>
+
+Aop annotations:refer aop2
+
+1.Point cut:    where I have to cut the part ; 
+2.Join point:   At which part I have to execute a method;
+
+point cut syntax:
+
+@Pointcut("within(com..*))")
+	public void authenticatingPointcut() {
+		
+	}
+
+    1.Within used for within a package it should work
+    2.Execution also used if we are specific
+
+    @After("authenticatingPointcut()")
+	public void authenticate1(JoinPoint joinpoint){
+		System.out.println("Authenticating the request after "+joinpoint);
+	}
+
+Note:
+1.There is no order/flow.
+2.It will execute like thread when not synchronized.
+
+JUnit:
+refer:junit1;
+->It is kind of testing; dev do the unit testing;
+
+->we create file in src/test...
+
+->kind of like testcases...
+
+process:
+1.proj->properties->libraries junit should be there
+2.Maven dependency junit
+3.run as junit
+
+Assertions:
+->Junit inbuilt class;
+->It has so many methods;
+E.g:
+Assertions.assertEquals(13,chkvariable);
+
+E.g:@Test
+	public void addTest1() {
+		int actualResult=Operation.add(5,0);
+		Assertions.assertEquals(5,actualResult);
+	}
+
+
+Parameterized test:
+Giving multiple test cases in single operations:
+eg:
+    @ParameterizedTest
+	@CsvSource({"1,2,3","3,4,7"})
+	void testAddition(int first,int second, int exp) {
+		int result=Operation.add(first, second);
+		Assertions.assertEquals(exp, result);
+	}
+
+
+Log4J:
+    ->Generally file concept,access, change log,edit log;
+    1. create .properties file in target;

@@ -1,0 +1,9 @@
+package com;
+
+public class UserDao {
+	private String url="";
+	private String username="root";
+	private String password="";
+	
+	private static final String INSERT_USER_SQL="Insert into"
+}

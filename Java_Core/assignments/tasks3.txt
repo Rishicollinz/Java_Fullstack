@@ -1,0 +1,9 @@
+Task : 1
+String a[]={"a.txt.txt_txt.txt", "aab.txt","jf.txt.txt","pop.txt.jpg","pop1.jpg"}
+find how may txt extensions are there in the word arr?
+
+Task : 2
+
+String a="hai hello how are u?"
+find max length of the string?
+find sec min word of the string?

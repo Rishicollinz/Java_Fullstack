@@ -1,0 +1,11 @@
+package com.service;
+
+public class WelcomeService {
+	public String firstMsg() {
+		return "First Message from welcome service";
+	}
+	
+	public String secondMsg() {
+		return "Second Message from welcome service";
+	}
+}

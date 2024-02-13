@@ -1,0 +1,15 @@
+package sqls;
+
+
+interface printable{  
+void print();  
+}  
+class Ex2 implements printable{  
+	public void print(){
+		System.out.println("Hello");
+	}  
+	public static void main(String args[]){  
+		Ex2 obj = new Ex2();  
+		obj.print();  
+	} 
+}  

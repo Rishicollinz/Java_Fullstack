@@ -1,0 +1,19 @@
+package com.game;
+
+public class Shooter implements Gametype {
+	public void run() {
+		System.out.println("Shooting invoked");
+	}
+	void up() {
+		System.out.println("Jump");
+	}
+	void down() {
+		System.out.println("Down");
+	}
+	void left() {
+		System.out.println("shoot");
+	}
+	void right() {
+		System.out.println("Aim");
+	}
+}

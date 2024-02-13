@@ -1,0 +1,214 @@
+<14/8/23>
+Refer:https://www.youtube.com/watch?v=4LZKnegAm4g
+Creating a project:
+==================
+
+1)search spring initializer in chrome, goto start.spring.io
+
+->select maven project.
+->your java version.
+->default spring boot version.
+->jar file.
+->Add dependency (spring web,mysql driver,spring data jpa)
+
+->Click generate.
+
+->Download and extract the zip file.
+
+2)Open that zip file as a project in intellij
+
+Connecting mysql with project:
+==============================
+
+1)create model,controller,repository(interface),exception.
+
+->Model is the table in the database, with id,name,username,email and pojo class(user.java).
+
+2)In repository, create userrepository and use this =>extends JpaRepository<User,Long>
+
+here jpa repository for methods, user is the table, long is the datatype of the primary key of that table.
+
+3)open application.Properties: It is used for database,url,name, password:
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3306/fullstack
+spring.datasource.username=root
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+*.use workbench for creating db etc... for using sql.
+
+
+4)Run the project:
+->goto FullStackBackend application, and run the project. It will create table for that database with its parameters.
+
+
+Sending data to database using postman:
+=======================================
+
+*.Postman is used to send data as a request in json format to the server(localhost) for storing the data to the database.
+
+->Create a userController in controller.
+    ->use restcontroller=controller+RequestMapping for basic controller.
+
+    ->use autowire for mapping the format with the interface;
+
+    ->use @postmapping("/url") for setting up the method while using that url.
+
+    Note: we didn't use .save method in interface because we directly used jpa repository
+    for default methods.
+
+Postman process:
+->create new collection named full stack
+->create new request.
+->goto body->raw . select json as format from text.
+
+->type the needed data in json format
+eg:{
+    "name":"rishijammer codes",
+    "username":"rishimouli",
+    "email":"rishimouli@gmail.com"
+}
+
+, is important. without it will cause json format error.
+
+->send the request.(200-ok,400-bad)
+
+->The data is stored in the database.
+
+Receiving data from database using postman:
+=======================================
+->same as sending data but use get method instead;
+e.g:
+@GetMapping("/readUser")
+    List<User>  getAllUsers(){
+        return userRepository.findAll();
+    }
+
+Using react for frontend:
+=========================
+
+Command for creating new react app:
+    ->npx create-react-app fullstack-front
+
+->Open that created folder in vscode.
+->open terminal and run npm start and it will start a development server in browser.
+
+*.Edit the navbar first:
+    ->search react snipplet in extension and install es7+
+    ->Import react functional component using the es7+, it will create the component for us.
+    ->we will use bootstrap here inside the div of the imported rfc.
+
+    Bootstrap:
+    ->we are using bootstrap inside the react, for that use the command in the inner terminal: npm i bootstrap, we can check the installation in package.json
+
+    ->Import the bootstrap in app.js by:
+        import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+        and delete unnecessary code in app.js
+
+    ->Get default navbar from bootstrap and paste it in navbar.js. then replace all
+    class with className for js.
+
+    ->Now we have to import the Navbar.js in app.js:
+        Just create a new element with the name: <Navbar/> and it should be imported in app.js like import Navbar from './layout/Navbar';
+    
+    ->Add another button for add user.
+
+    ->start the project again by npm start and the default page is with the navbar;
+
+    
+Homepage:
+
+->create rfc for homepage and add a table of bootstrap.
+
+Getting data to homepage:refer:homepage.js
+    -> we axios for getting data.
+
+    ->Install axios to the project by command: npm i axios
+
+    ->Import axios in homepage: import axios from 'axios'
+
+    *.To store the data create const variable,
+    const [users,setUsers]=useState([])
+
+    ->useState is React Hook that allows you to add state to a functional component. It returns an array with two values: the current state and a function to update it. The Hook takes an initial state value as an argument and returns an updated state value whenever the setter function is called.
+
+    UseEffect: It is used so everytime the page is load, the function gets loaded
+
+
+    -> we use await and sync because java executes line by line, so unless the await line executed, the async will not be executed.
+    Meaning: 
+    line 3 is in async
+    line 4 is in await
+
+    ->upto the completion of line 4, the line 3 will not be executed.
+
+    ->we will get errors in web page, if front end is not connected to backend, so connect it.
+        ->use this below @RestController in backend:
+            @CrossOrigin("http://localhost:3000")
+
+            localhost:3000 is the port where the react project is running, so now the backend and front end is connected but the data is only available in console because of code. we should show it in the web page;
+
+        -> All the information are extracted like prototype, version and so on. These are not needed at all. so, use this result.data . so only user data is available.
+
+
+    ->All the table data is in static, so we have to connect it into dynamic:
+        users.map()
+        ->Map calls each array and returns each array from the data.
+
+    setUsers(result.data);
+    ->This setUsers displays the data in the webpage instead of console.
+
+    *.The data is retreived and shown on web page using the axios. 
+Completed mins:40.27
+
+    ->Add edit,delete,view buttons in action.
+
+Adding an user:
+================
+
+-Goto adduser.js and import rfc
+
+and we have to ro ute:
+    npm i react-router-dom->install this for the proj.
+
+React-router-dom:
+    React Router Dom is used to build single-page applications i.e. applications that have many pages or components but the page is never refreshed instead the content is dynamically fetched based on the URL. This process is called Routing and it is made possible with the help of React Router Dom.
+
+Routing:
+->Routing should be used only in the app.js because it is the first page.
+
+->First import the react router dom in app.js
+
+Eg:import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+->Next,router is the overall element, inside routes which contains all the routes.
+Next the route.
+
+E.g:
+
+<div className="App">
+      <Router>
+        <Navbar/>
+
+        <Routes>
+        <Route exact path='/' element={<Home/>}></Route>
+        <Route exact path='/addUser' element={<AddUser/>}/>
+        </Routes>
+    
+      </Router>
+</div>
+
+*. Default is home page and /adduser url is adduser page.
+
+*.Now we have to link the add button to adduser page.
+so convert button to link of add button in the navbar and import link from react-router-dom.
+
+*.use to="/adduser" parameter inside the link element to link to a webpage.
+This is similar to the href for react router dom.
+
+Creating the adduser page table:
+*.Just used the template from the bootstrap forms in react.
+
+Store user information inside state:
+====================================
+

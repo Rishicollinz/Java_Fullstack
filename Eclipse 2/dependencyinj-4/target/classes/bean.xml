@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="telephoneNumberObject" class="java.util.HashMap">
+    	<constructor-arg>
+    		<map>
+    			<entry key="Rishi" value="9597843596"></entry>
+    			<entry key="Jammer" value="9952318663"></entry>
+    		</map>
+    	</constructor-arg>
+    </bean>
+    <bean id="telephoneDirectoryObject" class="telephonedirectory.TelephoneDir">
+    	<property name="phoneNumber" value="#{telephoneNumberObject['Rishi']}"></property>
+    	
+    	<property name="phoneNumber2" value="#{telephoneNumberObject['Jammer']}"></property>
+    </bean>
+    
+
+</beans>

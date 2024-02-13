@@ -1,0 +1,12 @@
+package controller;
+
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+
+public class HelloWorldController {
+	
+	public ModelAndView disp() {
+		return new ModelAndView("welcome","msg","welcome to MVC!!");
+	}
+}

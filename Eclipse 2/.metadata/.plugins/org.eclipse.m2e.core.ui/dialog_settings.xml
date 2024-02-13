@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\RISHI\eclipse-workspace\mvc4"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\mvccontroller"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\jdbcdao-13\src\main\java\com\dao\EmployeeDAO.java"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\dependencyinj-11\src\main\resources\bean.xml"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\dependencyinj-9\src\main\resources\bean.xml"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\dependencyinj-7\src\main\resources\bean.xml"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\dependencyinj-3"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\beaninjection\src\main\resources\bean.xml"/>
+			<item value="C:\Users\RISHI\eclipse-workspace\springtraining"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="internal"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="com.krct.training.aop"/>
+			<item value="com.krct.training.mvc6"/>
+			<item value="com.krct.training.mvc5"/>
+			<item value="com.krct.training.mvc4"/>
+			<item value="com.krct.training.mvc3"/>
+		</list>
+		<list key="groupId">
+			<item value="com.krct.training"/>
+		</list>
+		<list key="artifactId">
+			<item value="aop"/>
+			<item value="mvc6"/>
+			<item value="mvc5"/>
+			<item value="mvc4"/>
+			<item value="mvc3"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

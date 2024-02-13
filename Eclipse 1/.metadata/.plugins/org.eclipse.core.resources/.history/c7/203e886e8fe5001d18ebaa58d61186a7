@@ -1,0 +1,21 @@
+package Training;
+
+
+interface printable{  
+	void print();
+	void display(); 
+}  
+class Ex2 implements printable{  
+	public void print(){
+		System.out.println("Hello");
+	}  
+	public static void main(String args[]){  
+		Ex2 obj = new Ex2();  
+		obj.print();  
+	}
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		
+	} 
+}  

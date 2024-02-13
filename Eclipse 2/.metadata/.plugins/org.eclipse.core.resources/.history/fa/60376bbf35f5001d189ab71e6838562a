@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="add.jsp" method="get">
+first num:<input type="text" name="t1"><br>
+second num:<input type="text" name="t2"><br>
+<input type="submit" value="click">
+</form>
+
+</body>
+</html>

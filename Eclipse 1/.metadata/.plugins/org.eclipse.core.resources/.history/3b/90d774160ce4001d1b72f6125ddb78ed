@@ -1,0 +1,49 @@
+package Training;
+
+
+class Stock{
+	int num;
+
+	public void getNum() {
+		System.out.println("Get: "+num);	
+	}
+
+	public void setNum(int num) {
+		System.out.println("Set: "+num);
+		this.num = num;
+	}
+	
+}
+
+class Producer implements Runnable{
+	Stock s;
+	int i=0;
+	Producer(Stock s){
+		this.s=s;
+		Thread t1=new Thread(this,"Producer");
+		t1.start();
+	}
+	public void run() {
+		int i=0;
+		while(true) {
+			s.set(i++);
+			try {
+				Thread.sleep(1000);
+			}
+			catch(InterruptedException e) {
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+	
+}
+
+class Consumer{
+	
+	
+}
+
+public class ex93 {
+	public static void main(String[] args) {
+	}
+}

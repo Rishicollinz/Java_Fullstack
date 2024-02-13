@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login check</title>
+</head>
+<body>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%
+	String username=request.getParameter("usr");
+	String password=request.getParameter("pwd");
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	final String db_url="jdbc:mysql://localhost:3306/db3";
+	final String user="root";
+	Connection con=null;
+	con=DriverManager.getConnection(db_url, user, "");
+	
+	String qry="c";
+	PreparedStatement prt=con.prepareStatement(qry);
+	prt.setString(1,username);
+	prt.setString(2,password);
+	ResultSet rs=prt.executeQuery();
+	if(rs.next()){
+		System.out.println("Welcome "+rs.getString(1));
+		
+	}else{
+		System.out.println("Invalid Username or password");
+	}
+%>
+</body>
+</html>

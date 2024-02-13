@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login check</title>
+</head>
+<body>
+
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+
+<%
+String username=request.getParameter("username");
+String password=request.getParameter("password");
+
+Class.forName("com.mysql.cj.jdbc.Driver");
+final String db_url="jdbc:mysql://localhost:3306/shoppingzone";
+final String user="root";
+Connection con=null;
+con=DriverManager.getConnection(db_url, user, "");
+
+String qry="Select * from users where username=? and password=?";
+PreparedStatement prt=con.prepareStatement(qry);
+prt.setString(1,username);
+prt.setString(2,password);
+ResultSet rs=prt.executeQuery();
+if(rs.next()){
+	out.println("welcome"+rs.getString(2));
+	
+}else{
+	out.println("Invalid Username or password");
+	
+}
+
+%>
+</body>
+</html>

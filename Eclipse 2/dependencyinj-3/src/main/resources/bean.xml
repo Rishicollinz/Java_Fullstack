@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- answer -->
+    <bean id="a1" class="dependencyinje.Answer">
+    <property name="id" value="1"></property>
+    <property name="name" value="Java is a Programming Language"></property>
+    <property name="postedDate" value="5/10/2023"></property>
+    </bean>
+    <bean id="a2" class="dependencyinje.Answer">
+    <property name="id" value="2"></property>
+    <property name="name" value="Java is a Platform"></property>
+    <property name="postedDate" value="10/5/2023"></property>
+    </bean>
+    
+    <!-- user -->
+    <bean id="u1" class="dependencyinje.User">
+    <property name="id" value="1"></property>
+    <property name="name" value="Rishi"></property>
+    <property name="email" value="rishi@gmail.com"></property>
+    </bean>
+    <bean id="u2" class="dependencyinje.User">
+    <property name="id" value="2"></property>
+    <property name="name" value="Jammer"></property>
+    <property name="email" value="jammer@gmail.com"></property>
+    </bean>
+    
+    <!-- question -->
+    <bean id="q1" class="dependencyinje.Question">
+    <property name="id" value="1"></property>
+    <property name="name" value="What is Java?"></property>
+    <property name="answers">
+    	<map>
+    		<entry key-ref="a1" value-ref="u1"></entry>
+    		<entry key-ref="a2" value-ref="u2"></entry>
+    	</map>
+    </property>
+    </bean>
+
+</beans>

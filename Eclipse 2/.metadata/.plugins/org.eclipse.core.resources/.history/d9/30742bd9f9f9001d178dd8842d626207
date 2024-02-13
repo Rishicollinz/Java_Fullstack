@@ -1,0 +1,13 @@
+package test;
+
+public class MyOrder {
+	public void testMethod1() {
+		System.out.println("One");
+	}
+	public void testMethod2() {
+		System.out.println("Two");
+	}
+	public void testMethod3() {
+		System.out.println("Three");
+	}
+}

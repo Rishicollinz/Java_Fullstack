@@ -1,0 +1,19 @@
+package com.game;
+
+public class Wrestling {
+	void run() {
+		System.out.println("Wrestling invoked");
+	}
+	void up() {
+		System.out.println("Grapple");
+	}
+	void down() {
+		System.out.println("Release");
+	}
+	void left() {
+		System.out.println("Punch");
+	}
+	void right() {
+		System.out.println("Kick");
+	}
+}

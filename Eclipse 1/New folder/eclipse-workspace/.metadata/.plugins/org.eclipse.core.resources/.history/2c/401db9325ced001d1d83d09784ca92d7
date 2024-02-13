@@ -1,0 +1,14 @@
+package com.game;
+
+public class AppManager {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Wrestling wrs=new Wrestling();
+		Shooter s=new Shooter();
+		GameManager g=new GameManager(wrs);
+		System.out.println(g);
+		System.out.println(s);
+	}
+
+}

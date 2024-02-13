@@ -1,0 +1,12 @@
+package com;
+
+public class LoggingAspect {
+	@Before()
+	public void beforeLoggers() {
+		System.out.println("Before Loggers");
+	}
+	
+	public void afterLoggers() {
+		System.out.println("After Loggers");
+	}
+}

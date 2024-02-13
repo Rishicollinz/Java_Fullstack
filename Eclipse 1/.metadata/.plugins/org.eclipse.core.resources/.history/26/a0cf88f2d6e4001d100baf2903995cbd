@@ -1,0 +1,14 @@
+package sql;
+import java.sql.*;
+
+public class Ex1 {
+    public static void main(String[] args) {
+        Class.forName("com.mysql.jdbc.driver");//driver(auto)
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Registration", "root", "");
+        if(con!=null) {
+        	System.out.println("Connected");
+        }else {
+        	System.out.println("Not Connected");
+        }
+    }
+}

@@ -1,0 +1,15 @@
+package com.game;
+
+public class GameManager {
+	Wrestling w;
+	Shooter s;
+	public GameManager(Wrestling w){
+		this.w=w;
+	}
+	public GameManager(Shooter s){
+		this.s=s;
+	}
+	public String toString() {
+		return "Wrestling";
+    }
+}

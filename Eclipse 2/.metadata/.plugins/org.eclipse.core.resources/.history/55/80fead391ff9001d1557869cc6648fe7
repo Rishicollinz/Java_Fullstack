@@ -1,0 +1,15 @@
+package com.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class UserControl {
+	public ModelAndView listUser() {
+		return new ModelAndView("listUser","listUserMsg","i return the users");
+	}
+	
+	public ModelAndView saveUser(User user) {
+		return new ModelAndView("listUser","listUserMsg","i return the users");
+	}
+}

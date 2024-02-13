@@ -1,0 +1,11 @@
+package com.game;
+
+public class GameManager {
+	Wrestling w;
+	public GameManager(Wrestling w){
+		this.w=w;
+	}
+	public String toString() {
+        return "Wrestling";
+    }
+}

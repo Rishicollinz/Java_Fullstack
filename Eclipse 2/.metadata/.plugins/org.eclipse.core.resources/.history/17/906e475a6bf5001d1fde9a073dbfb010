@@ -1,0 +1,33 @@
+package emp;
+
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+
+
+
+public class EmployeeDao implements IEmployeeDao{
+
+	public void addEmployee(Employee employee) {
+		Transaction trans=null;
+		Session session=HibernateUtil.getSessionfactory().openSession();
+		trans=session.beginTransaction();
+		session.save(employee);
+		trans.commit();
+	}
+	
+
+@SuppressWarnings("unchecked")
+	public List<Employee> getAllEmployeeByDepartment() {
+		Transaction trans=null;
+		List<Employee> employee=null;
+		Session session=HibernateUtil.getSessionfactory().openSession();
+		trans=session.beginTransaction();
+		employee=session.createQuery("from Employee").list();
+		return employee;
+	}
+
+}

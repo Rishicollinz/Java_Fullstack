@@ -1,0 +1,1388 @@
+<20/3/23-FN>
+why java?
+*.for electronic devices
+*.platform independent
+platform dependency:
+    1.os
+    2.processor
+
+Each os and processor runs program differently.
+
+processor:
+16,32,64 bits different processor
+
+program------------>JVM---------->processor
+        bytecode
+*.jvm understands program as bytecode.
+
+        jvm acts as virtual machine so that the program can run on either 32 or 64 bits 
+        processor.
+
+*.Java is a platform independent language.Platform independency is achieved through jvm
+and bytecode.
+
+*.Java is platform independent whereas jvm is platform dependent.
+
+*.processor is divided based on the instruction length(word) it can run at a time.
+
+*.How many main method can a java file have?
+    N- n number of classes with main method.
+
+<20/3/23-AN>
+JDK->JRE->JVM //I don't know if jre at that place is correct or not.
+
+What is jar file?
+        *.Executable files in java are called jar file.
+
+*.Java uses both compiler and intepreter.
+
+compiler and intepreter both checks the syntax of the program.
+
+compiler:
+Reads the whole code and prints error if any.
+
+intepreter:
+It runs upto line 7 if no error.
+If error occurs at line 8, it executes upto line 7
+
+*.Difference between scripting and programming language:
+
+        *. Programming languages are used to build and design standalone applications or software.
+                |->It uses compiler 
+
+        *. Scripting languages are used to communicate and integrate two different technologies.
+        Eg:php,js,python etc...
+        |-> It mainly uses intepreter.
+
+*. Java uses both compiler and intepreter.
+
+Adaptive optimization:
+        *.Jvm checks whether the program should use intepreter or compiler.
+        *.It increase efficiency of the running time.
+
+In jvm, adaptive optimization takes places in hotspot.
+
+JVM tasks:
+        *.Convert bytecode to 32bit or 64bit determination.
+        *.for adaptive optimization.
+        *.Garbage collection:It cleans the unnecessary memory, so that the program 
+        doesn't hold space.Garbage collection is a mechanism which helps in freeing the
+        unused memory in java.
+                Algorithms in Garbage collection:
+                1)Mark and sweep Algorithm ->Diagram:1
+
+*compiler of java:
+        JIT=Just In Time.
+
+*.Program line by line description and explanation:
+1) demo.java
+
+*.system class is needed for input and output.
+---------------------------------------------------------------------------------------------
+
+<21/03/23-FN>
+     1)Data:
+     Any information that is given into the system is called data.
+     ->we have specify the space of the data
+     ->we have to give name for that data.
+
+     *.We have to decrease the space so that the speed of the application is fast.
+
+     Data structure:
+        ->The way you store the data, how do you retrieve the data and how do you organize 
+        and manipulate the data.
+                      
+                      |_>data 
+        String name="raj";
+        |       |_>variable name
+        |_>keyword of specified data
+
+why we specify data type for data? sol:diagram2
+
+->Userdefined datatype:
+        If user allocates the necessary space for data is known as userdefined.
+
+->primitive datatype:
+        If system allocates the space for data it is known as primitive.
+        Eg:
+                int,float,char,boolean,long,double.
+                classes of above type:
+     wrapperclass:Integer,Float,Character,Boolean,Double,Long- These are known as superclass
+                or wrapperclass.
+
+        ->String is directly used as class.
+        In string we can't specify space for each word, so we use direct wrapper class.
+
+When memory allocates?
+        ->Memory allocation in java always occurs at runtime in heap memory.
+        ->Except string always uses heap memory. String allocates at
+          Stringconstantpool or stringpool.
+        ->There is no compile time allocation of memory in java.
+
+How to find the size of datatype used in our compiler? prg:size.java
+byte<<short<<int<<long<<bigint
+
+Type casting:
+        ->Converting one data type to another.
+        Two types:
+        ->Implicit typecasting or Widening Type Conversion:
+                System typecastes itself
+        ->Explicit typecasting or Narrowing Type conversion:
+                Developer typecastes using code.
+                Eg:
+                byte bot=5;
+                int hi=(int) bot;
+                System.out.println(hi);
+        ->Here bot byte type is converted to hi int type.
+        
+        ->Explicit typecasting:
+        Two types:
+                1)middata->middata;
+                i.e., datatype to another datatype;
+                2)middata->wrapperclass:
+                        it uses parse for this process,every class has it.
+                        e.g:parseint
+                i.e., datatype(int)->wrapperclass(Byte);
+        
+        program:Type.java(it contains above two types)
+
+        ->Type casting can be from small to big value element i.e.,byte->int but 
+        it is not allowed to from big to small because the size of the big element maynot be
+        enough for the small element.
+<21/03/23-AN>
+How to declare a variable which can't be changed?test.java
+Difference btw Static & constant ?
+        -> Static will retain the old memory of data and also allow to change the data.
+        -> constant will not allow to change the data.
+        refer:test.java
+
+        ->Don't variable with same name twice even with different datatype
+
+//rehashing is the most disadvantage of hashing method.
+
+variables can start with 
+->letters,_,$;
+but single'_' is not valid;
+
+All these variables are valid:
+        int __;
+        int $;
+        int $__;
+        int a;
+        int A;
+        int _123;
+        int $_23;
+        int var_var;
+        int var123;
+
+*.Operators:
+https://www.javatpoint.com/operators-in-java
+~means negation
+~2=-(2+1)=-3
+~2=-(-2+1)=1
+
+*.Increment:
+Refer:file.java and diagram 3
+
+*.Main,String,BufferedReader is not a keyword, so can be a variable
+Refer.ex3.java
+Class names aren't keyword, so can be used as variable
+
+*.Difference between addition of string with int and char with int:
+refer:ex4.java;
+
+*.Boolean ex:refer:ex5.java
+
+
+----------------------------------------------------------------------------------------------------------
+<23/02/23-FN>
+Getting inputs in java:
+There are only two ways:
+1)scanner
+2)BufferedReader
+
+refer:diagram4 with input stream reader in pipe varum.
+
+2)Buffered reader:
+two methods to read:
+i)readLine=for each line reading.
+ii)read=for each char
+
+refer:ex6.java
+//Bottleneck problem:
+        Inadequate or not uniformity in reading the inputs;
+if we read id name salary gender, in gender it is char;
+here name,salary,id are all multiple char/big but gender is char;
+so if we read id name gender and then salary, then after gender it takes time to read next big input(salary);
+
+->This is known as bottleneck.
+so to solve this, we use skip method to skip the nextline.
+e.g:br.skip();
+
+otherwise maintain the size of pipeline same not big->small->big;
+i.e;here gender is small we prg it as char gen=br.read()//error
+instead of it, we use Char gen=br.readLine().charAt(0);//reading it as string which is big not small.
+So, there is no bottleneck problem.
+
+refer:bufferedreader.java for getting input without bottleneck from user
+refer:br2.java for getting input from file(d.txt);
+
+1)Scanner:
+scanner class contains the input stream reader and system input; It does this on its own;
+->we can directly buffer part alone.
+->It doesn't give ioexception.
+
+package:
+java.util
+Method:
+i)hasNext()=boolean // always return true or false;
+        hasNextInt(),hasNextFloat(); it doesn't support hasNextChar();
+ii)Next()//it reads the data
+        next()->reads a word
+        nextLine()->reads upto new line;
+        next().charAt(0)->for a single char
+
+Refer:scannerex.java,scannerex2.java,sc.java
+
+
+Difference between scanner and bufferedreader:
+we have to typecast manually in bufferedreader but scanner has its own method. So it is 
+efficient.
+
+<23/3/23-AN>
+using str as input in scanner
+Refer:ex7.java 
+
+*.cron job:
+->scheduling a code to run at particular time.
+->Cron jobs are scheduled at recurring intervals, specified using a format based on 
+unix-cron. You can define a schedule so that your job runs multiple times a day, or 
+runs on specific days and months.
+
+->Any smallest unit is token;
+Delimiter:
+a char which splits the strings using specific character into separate variables.
+->Here we uses string tokensizer;
+Refer:ex8.java
+
+Control structure:
+->The main goal of program is to be lightweight;
+To that goal, these methods help it():
+        1)->if,else and switch:
+        These statement will one block only if it's satified that condition. unnecessary
+        block of code aren't not even run if it is not satisfie the condition.
+        e.g:
+        if(){
+
+        }else{
+
+        }
+        2)Looping:
+                if we want run same block of code again and again
+                ex: printing same 1000times;
+                methods:
+                for,while,do while,for each;
+
+Java ternary operator:
+if(condition)?true:false;
+refer:ex10.java
+
+*.In java if block is satified only if true; in c it is not satified only if false;
+prg: boolean a=true;
+     if(a){
+        s.out("jesus");
+     }
+     //prints jesus;
+
+*.If only takes boolean value;
+
+*.Switch:
+        when to use it:
+        if code is not complex and only use it one time,use switch case;
+        when to use if:
+        If there is so many branch;
+
+        ->A switch case can run without a break but it can only do partial elimination then.
+        //don't use float as label bcoz it changes in decimal point;
+        //use only final variable as label for case in switch case
+        Refer:ex11.java
+
+combined switch:
+        If all the cases needed to print or execute the same block of code
+        refer:ex12.java
+
+=========================================================================================================
+<24/03/23-FN>
+Looping statement:
+//if we use i in loop, then declare it is as global, because it reduces the space.
+i)for loop:
+        for(int i=0;i<n;i++){
+                //code
+        }
+ii)while:
+while(n>0){
+        //code
+        n--;
+}
+iii)do while:
+do{
+        //code
+        n--;
+}
+while(n>0);//do while needs to be finished with semicolon;
+iv)for each:
+
+//Errors analysing:
+        refer:ex13.java
+
+//i and j in for loop:
+        refer:ex14.java
+
+//use continue to pass a value;
+
+//2*1=2 prg:
+        refer:ex15.java
+
+//when to use which loop:
+        for loop: if we know the start,alter,end should use for loop;
+        while loop:if we don't clearly know alter or end should use while loop;
+        while(n>0)
+        do while loop: condition crt or not atleast one time loop should run;
+
+//Nested loop:
+using loop within loop;
+refer:ex16.java
+
+//Pattern refer:ex17.java
+<24/03/23-AN>
+//Array:
+        ->Array is continuous memory allocation.
+
+        ->size of the array is equal to number of element into size of the
+        individual element;
+
+        ->Array element are accessed using index value;
+
+        ->Array index starts from 0 to no.of.elements-1;
+
+        ->In c,array memory is allocated during compile time, so we can't resize;
+
+        ->In java, it is allocated during runtime , so we can resize but once resized it 
+        forgots all the previous values in array.
+
+Array contains elements of same data type.
+
+//without using array we can just declare each value independently but it takes time to access
+each variable separatly.
+//and if we use multiple variable , it allocates randomly in memory chunks.
+//But using array the values are stored in sequence;
+
+1)1d array:ex18.java //mark of student
+2)2d array://mark of 2 students 3 sub each
+refer:ex19.java,ex21.java
+3)3d array:
+refer:ex20.java
+4)5d array:
+refer:ex21.java
+
+//problem:2*1=2 prg: but upto 10
+refer:ex23.java
+
+//problem:atm
+1)pin correct loggedin
+wrong invalid try again 
+3 attempts
+3 wrong card blocked
+refer:ex24.java
+
+========================================================================================================
+<25/03/23>-FN
+
+Basic operations in datastructure:
+->Insertion
+->Traverse
+->Deletion
+->Search
+->Update
+->sorting
+
+Set:
+Group of data/items.
+
+foreach:
+key word for
+E.g:
+        int arr[]={1,2,3};
+        for(int i:arr){
+                System.out.println(i);
+        }
+        refer:ex25.java
+
+//Array operations:
+Refer:ex26.java
+//if we print empty int array the output will be 0;
+//if we print empty string array the output will be null;
+
+//deletion of array:
+first delete element then move all remaining elements front;
+refer:ex27.java;(not so efficient);
+ex28.java(efficient);
+
+//Jagged array:
+means an array inside an array;
+A jagged array is an array of arrays such that member arrays can be of 
+different sizes, i.e., we can create a 2-D array but with a variable number of columns 
+in each row. These types of arrays are also known as Jagged arrays.
+
+refer:ex29.java
+
+======================================================================================================
+<27/03/23-FN>
+Strings:
+data is stored in hash;
+const memory reference is hash code
+but new keyword will create reference in heap memory
+refer:string_hash.java
+
+concatenation:
+we have assign explicatly otherwise we have to give the concat each time.
+s1=s1+s2;
+
+length:
+s1.length();//it includes each char including space;
+
+How to convert array to string:
+char arr[]={'a','b','c'};
+String a=new String(arr);//this converts it
+String a=new String(arr,1,2)//this takes only from 1 to 2;
+
+refer:ex31.java
+
+why new keyword is different?
+
+const memory reference is hash code
+but new keyword will create reference in heap memory
+
+refer:ex32.java
+//string
+//String comparison:
+//sort of array:
+refer:ex33.java
+//sort of string:
+refer:ex34.java
+
+//split method using str to arr,string to chararray:
+refer:ex35.java
+
+//string methods
+refer:ex36.java
+
+//stringtokenizer
+refer:ex37.java
+
+//stringbuffer(threadlock) and stringbuilder(no threadlock) are classes which treats string with mutable objects.
+//stringbuffer is thread safe but string builder is not threadsafe.
+
+Thread:
+minute thing in an object;
+
+how to do you know a stringbuffer has needed memory?
+//ensurecapacity does ensure that the stringbuffer has required memory.
+
+StringBuffer/stringbuilder:
+->stringbuilder is not threadsafe whereas stringbuffer is threadsafe;
+refer:ex38.java
+
+Method and function:
+
+simple method calling:
+1)//Method without arguments without return type:
+refer ex39.java
+
+->static:
+        If we use static , we can call method using obj , cls name or with nothing.
+        we can use static;
+->Not static:
+        If we use without static, we should call only using object;
+
+->Arrays.toString();
+->Here toString is static because it calls toString from class
+so any class with method calling is always static;
+
+->If we use without static in user app, then they can have multiple obj and it slows the app.
+so, mainly we use static in apps;
+
+so suppose dept should be instanteous bcoz multiple dept needed but inside should be static;
+
+2)Method without arguments with return type:
+refer:ex40.java
+static and non static :
+
+        ->if we declare a variable, we can only use it in non-static method;
+        ->we can use a static variable only in static method;
+
+//Highest preference is given to local variable than global variable;
+refer:ex41.java
+
+Difference between the argument and a parameter:
+->Argument means directly giving data;
+eg:
+sout(80);
+->parameter means giving via variable;
+a=80;
+sout(a);
+
+3)method with argument without return type:
+refer:ex40.java(third method)
+4)method with argument with return type:
+refer:ex40.java(fourth method)
+
+signature of the function:
+return type;
+function name;
+length of argument;
+data type of argument;
+
+What is the difference between function and methods?
+if code of block inside class,it is called methods.
+methods inside a class;
+a function is outside a class;
+
+Function:
+refer:ex42.java
+
+//there is a maranton race
+//each participan gets random number with name like dictionary
+//sort with alphabet
+//print name then id;
+2d array i am not going to do it.
+refer:ex43.java
+
+===================================================================================================
+<28/03/23-FN>
+OOPS concept:
+
+        1)class.
+        2)object:It is a entity which uses the class.
+        3)Inheritance.
+        4)polymorphism.
+        5)Encapsulation.
+        6)Abstraction.
+
+=>class is a user defined datatype;
+=>Just by printing an object,we can find the class(fully qualified object name);
+why do we go oops concept?
+        Because of growing data, data analystics.
+        The software is faster at fast but it goes slow after a period of time due to load
+        
+        //Main points of oops concept:
+
+        =>Software needs to create its memory only if it needed it.
+        =>If we can duplicate a code, we do it not doing it again.
+
+Refer:ex44.java
+
+//Example with employee
+refer:ex45.java
+
+//default constructor 
+refer:ex45.java
+
+//using default constructor fixing val;
+Always there is a default constructor, we can just give values in them like methods.
+refer:ex46.java
+
+constructor overloading:
+In same class, Two methods with different number of arguments and each invoke when specific 
+no.of.argument is called.
+
+Same method invokes different code when giving different arguments.
+
+//using this
+refer:ex47.java
+
+//constructing chaining:
+//getting a value from another method and inheriting it:
+refer:ex49.java
+
+//constructing chaining:
+//user-defined:
+refer:ex50.java
+
+//getting input as string:12,john|id,name|15,jammer
+output: 12 john
+        5 name
+        15 jameer
+refer:ex50.java
+
+//getting input as string and printing it as object;
+refer:ex51.java(mam method)
+
+//Instance variable and class variable:
+//Printing empcount;
+class variable:
+        It is whole and inside instance variable;
+Employee count is class variable;
+name of employee changes with respect to employee so it is instance variable;
+
+=>static data type will store separatly than normal memory
+=>so, we can access static value without object;
+=>static will remember old data but will allow to update but final data can't be changed.
+=>using static will allow the data to be class variable, otherwise it is instance variable;
+refer:ex52.java
+
+==========================================================================================================
+<29/3/23-FN>
+
+we can't create a variable for each employee for long list of employee.
+refer:ex53.java//This is user specifically defined, so tough on devs;
+
+->so, we initialize via array:
+refer:ex54.java
+
+//student:name,rollno,grade/standard,4 subject mark
+refer:ex55.javae
+
+polymorphism:
+ the same method that behaves differently depending upon the object it is called called.
+ or the number of parameter it is passed
+
+ Two types of polymorphism:
+ 1)Runtime polymorphism;
+        =>Method overriding;//two or more classes inherits.
+ 2)Compiletime polymorphism;
+        =>Method overloading;
+
+Main feature of inheritance is polymorphism.
+polymorphism application is in gaming industry
+if(x,y>20) react one thing if not react one thing;
+
+Encapsulation:
+wrapping up of one or more thing into it.
+
+Abstraction:-Hiding unnecessary data;
+abstruct keyword is abstraction;
+int has wrapper class of integer. that is also abstraction/
+
+Inheritance:
+Driver class:
+        It is a class where the code starts and goes from there.
+
+
+refer:ex56.java,ex57.java
+usage of super with inheritance in ex58.java
+
+//emp raise
+emp band
+only raise amount
+
+method overloading:
+compile time polymorphism:
+refer:ex59.java
+
+//To support multiple inheritance in java, we use interface;
+//Interface doesn't need objects
+
+Multiple-level inheritance:
+but I know didn't do 
+ex59.java
+
+//manager name,id,sal,skillset
+manager manages developer array
+refer:ex60.java
+
+
+
+=====================================================================================================
+<24/4/23>
+
+Object cloning:
+
+*.If you use a reference of a variable for another variable.
+*.Then if we change the reference, it also changes the original variable.
+
+Eg:ex61.java
+*.here emp3=emp2;
+*.If we change the name of the emp3, then emp2 name also changes.Its hashcode also same.e
+
+shallow copy:
+*.Shallow copy means refering an object to the pre-existing object.
+*.It merily creates just the reference rather than copying the actual data.
+
+Deep copy:
+        The copied object assigns each and every instance variable of the parent object explicitly(user assigned);
+using new keyword, if we want to use emp3=emp2;
+then using empty constructor for emp3 and copying each instance of emp2 separately.
+
+*.The problem is if there is 50 instance in emp2; then we have to copy each instance separately.
+
+Eg: ex62.java
+*. SO we use object cloning, which has deep copy and each instance is copied automatically.
+e.g:ex63.java
+*.But we need to manage clone() method , throws exception
+
+Shallow copy here:
+ex64.java due to super.clone
+
+corrected:ex65.java
+solved by manually overriding in clone method for deeper copies.
+
+//clone default is shallow copy, they wrote super.clone by it
+// to convert it into deep copy,
+// we over write super.clone to specificed code.
+
+*.Private data members can be assigned using a constructor or public methods in the respective class.
+
+*.If a variable is private in a class, suppose we have to update/access in another class,
+we have to use methods to get the required values.
+Eg:ex66.java
+
+*.In real time, all data are in private. To overcome this, we use getters and setters.
+Employee class->right click->source action->generate setters and getters.
+
+pojo classes:
+It has getters and setters and connectivity details and port number.
+
+eg:ex67.java
+
+Method overriden:
+ex68.java
+
+upcasting:
+Third a=new Second();
+it takes function from third, only overriding funcs from second it takes takes.
+Eg:ex68.java
+
+Downcasting:
+we can't convert from small to big; meaning child to parent;
+Second st=new Third();(X);
+so we have to typecast third to second;
+Second st=(Second) new Third(); 
+//here classcast exception occurs in loader, because we didn't use obj of third here;
+correct format is:
+        Second st=(Second) t;//t is the obj of third declared above
+
+Refer:ex68.java
+
+
+Member Inner class:
+        A class inside another class.
+        To access this,
+        ->create a obj for wrapper class(parent);
+        ->using that object, create another obj for child class:
+                company c=new company();
+                Department.company dep=c.new Department();
+eg:ex69.java
+
+Static inner class:ex70.java
+
+method->class
+eg:ex71.java
+
+
+Anonymous Inner Class:
+*.Anonymous inner class acts as a child class.
+*.This is generally used when we overwrite just one method or a very few method from a interface
+or a abstract class;
+eg:ex72.java
+*.we can use super meaning Anonymous has child and parent relationship;
+
+*.Negative:
+->This is only can be used for overriding methods only, we can't use new method in the 
+child of anonymous part.
+
+Refer:ex72.java
+
+->We can also use anonymous inner class for interface;
+->we can create an obj for an interface
+
+refer:ex73.java
+
+=================================================================================================
+<25/04/23>
+Exception Handling:
+->Suppose if there is a possibility of error in the program(known as exception), then we 
+should handle it.
+
+->Every entry in the input area is maintained in a stack by the JVM which is called as
+stack frame or activation record.
+
+For Ex74.java:
+        ->stack will include main method.
+        ->main method contains second fun(), then new stack for this fun created.
+        ->second fun() call first fun(), then new stack for this fun created.
+        ->After finishing first fun(), it will poped from the stack.
+        ->After finishing second fun(), it will poped from the stack.
+        ->After finishing main method(), it will poped from the stack.
+
+        ->Then it will moved to garbage collection.
+
+In ex74.java:
+
+*.main->secondfun->firstfun();
+->In first func, there is arithmetic exception by zero, it checks whether error is handled
+by first func.
+->Here it is not, so the control goes to second func(parent), it checks whether the error
+is handled by second func, if not the control goes to the main method(parent).
+
+->In main method, the control checks if the error is handled.If not the control goes to JVM.
+
+->JVM pushes out the program abnormally(meaning with error).
+
+Error in ex74.java:
+
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at ex74.firstFun(ex74.java:6)---------->1
+        at ex74.secondFun(ex74.java:11)-------->2
+        at ex74.main(ex74.java:16)------------->3
+
+->In 1)It checks whether the exception is handled at firstfun(),it is not, so it goes to 2)secondfunc
+     2)It checks whether the exception is handled at secondfun(),it is not, so it goes to 3)mainfunc
+     3)It checks whether the exception is handled at main(), if not, the control goes to 
+     JVM, and the program is abnormally terminated.
+
+Exception:
+        ->Any scenarios that may cause abnormal behaviour of termination of the program.
+          It is known as errors.
+        ->Few of these errors can be predicted early and can be handled in manner where 
+          the abnormal termination can be avoided is called exception.
+
+        ->Errors are not resolvable/not recoverable.
+        ->Exception are resolvable/recoverable.
+
+        ->Throwable is the parent class of errors and exception.
+
+        ->Exception mechanism is always printed as,
+                Exception + threadname + exception_handling_class + error_message +
+                        stacktrace...
+        
+        ->If a exception occurs and it is not handled then it stops the program, if there
+        is block of code after exception place, then it is not executed.
+        ->But if the exception is handled, then all code is executed.
+
+*.An example of handling exception in ex74.java is done in:ex75.java.(try and catch)
+
+Exception methods:
+        ->e prints the full exception message.
+        ->e.getMessage() prints the message only (/ by zero).
+        ->e.printStackTrace() prints the stack trace of the exception(where it occurred).
+
+Eg:ex76.java
+
+
+*.All exceptions are only occurs at run-time.
+
+There are two types of exception:
+        ->checked exception(compile time exception):
+                ->Syntax,compiler,semicolon missing,end of parsing.
+        ->Run-time exception(Run time exception):
+                ->Inefficiency of computer system.
+                ->JVM.
+                ->Main without String args[].
+
+checked exception:
+        ->The exceptions which are checked by the compiler for smooth exception.
+        ->we should handle using try,catch and throws method.
+
+
+unchecked exception:
+        ->It is not checked by compiler.
+        ->This should be handled by the programmer.
+
+*.partially checked exception are throwable and exception, all others are fully checked
+exception.
+
+Finally block:
+        ->It is like else block in (if-elseif-else),here if is try block, else if is catch
+        block.
+        ->It executes finally after try and catch blocks.
+
+*.Try is not a standalone block, it either needs catch or it needs finally block for its 
+execution.
+
+*.Try block will only run upto first occurence of exception and forward it to catch. 
+Remaining code in try won't run.
+        *.To solve it, we have to use nested try.
+
+*.A try block can have multiple catch block but programmer has to make sure, the catch is 
+designed based on exception class hierarchy.
+
+Nested try:
+eg:ex78.java
+
+*.A try can have multiple catch but not multiple finally.
+
+Class Methods:
+These can be used in profiles in db.
+1)To get methods from a class;
+Eg:ex80.java
+2)To get fields from a class;
+eg:ex81.java
+3)To check the access specifiers of the fields from 2 and including them in the separate
+arrays.
+eg:ex81.java
+
+->Overriding .equals in ex82.java
+->Nullpointer and classcastexception in ex82.java
+
+Optimizing the code of ex82:
+ex83.java
+->Throws can be used in method line;
+
+Userdefined exception:
+throw:
+we can throw an exception;
+Checking eligibility to voting in ex84.java using throw keyword and catching it.
+
+Difference between final,finalize,finally.
+->final(keyword) means not changeable.
+        eg: final double pi=3.14;
+        If a class is final, we can't inherit it.
+->finally{}, it is used after try. It will definitely run.
+        e.g: should i close anything before completing the program;
+
+->finalize(), it is a method, it is invoked during garbage collection;
+        E.g:Before deleting, should i update to anyone, we have to use finalize();
+
+=================================================================================================>
+26/04/23
+Thread:
+        ->Threads are single independent unit of execution.
+        ->Threads are required to optimize our system by multitasking.
+       
+Types of multitasking:
+        1)Process based multitasking.
+        2)Thread based multitasking.
+
+        ->Process based multitasking is at os level.
+        ->Thread based multitasking is at program level.
+
+Thread schedulers are responsible for execution of thread.
+
+->Threads order of execution is unpredictable.
+->Every thread follows a cycle. It is known as lifecycle of thread.
+
+To access thread: Thread.currentThread()."methods"
+
+->Main thread is responsible for execution of the entire program.
+
+*.we can implement the thread by extending the thread class and implement runnable 
+interface.
+
+->An run method of a class extending the thread class or implementing a runnable interface,
+can be invoked using normal method name invoke but the run method would be implemented as a 
+normal function rather than thread function.
+
+Even you start with thread of func. It is still in main thread.
+Eg:ex87.java;
+
+->Main method thread is responsible for execution.
+
+//t1.run() will invoke the thread in main thread;
+//t1.start() will run the same thread in specific thread;
+//we can also name the threads by,
+        Thread a=new Thread(objname,threadname);
+eg:ex88.java
+
+*.created two threads for multithreading:
+we can set two functions for the same method for different threads by checking their names.
+Note:
+        ->since each extended/implemented can override run method only once, if there is a
+        specification of implementation of each thread, then the implementation mechanism
+        can be designed using thread name to decide the execution part
+eg:ex89.java
+
+Thread priority:
+        ->JVM assigns thread priority to normal by default.
+        ->If the priority has to be changed, the programmer has to use getPriority() and
+        setPriority();
+        ->Even if we set priority, the thread scheduler can run a thread if the thread is idle.
+
+        ->The thread scheduler will execute the thread based on priority but it is always not
+        true.
+
+        ->Minimum priority of thread:1
+        ->Normal priority of thread:5
+        ->Maximum priority of thread:10
+
+        ->If the thread priority is not in the allowed value(1-10) then illegalArgumentException
+        occurs.
+
+        Lifecycle:
+                Thread->start->runnable->waiting(maybe)->dead.
+
+Thread yield:
+        ->Yield causes to pause the current executing thread, to give chance to execute 
+        the waiting thread in threadpool of same priority.
+
+        ->If there is no waiting thread or not in upper priority, the same thread will 
+        run.
+
+        ->If a thread is yield, the continuous of this thread can't be predicted , 
+        it entierly depends upon the thread scheduler.
+
+Lifecycle of thread:
+Newborn->Runnable->Blocked
+   |       |         |
+   |    running      |
+   Dead    |      Dead
+         Dead
+
+Methods:
+1)Newborn:
+start(),stop();
+2)Running:
+yield(),suspend();
+3)Runnable:
+sleep(),resume(),wait(),notify();
+4)Dead:
+to go to dead: dead();
+
+Join:
+->suppose t1 has to select a wedding venue;
+ t2 has to do wedding card;
+ t2 depends on t1 for venue;
+ so we have use t2=t1.join();method;
+ 
+
+->Though a thread job is completed it don't go to dead state, instead it waits for another
+ thread in the waiting pool.
+ ->It happens in the scenarios when the second thread needs the job of first thread;
+
+
+Thread sleep():
+        ->It happens in two places,
+                ->We manually sleep a thread, for checking the flow of the threads and 
+                for the hardware requirements.
+        Thread.sleep(time in ms);
+
+Note: This method helps in re--- for the given time period.
+
+->we have to handle Interrupted Exception , when we use sleep();
+
+Eg:ex91.java
+
+Thread synchronization:
+*.Thread safe ==synchronization;
+*.A synchronized method is a method which makes sures that the execution is thread safe 
+that is if one thread is accessing a synchronized method, no other thread can access the
+method until the first thread completes its execution.
+
+Producers and consumers:
+========================
+
+*.One class produces threads always.It is producer.
+*.Another class always uses that threads to load data/process. It is consumer.
+
+we use multi threading in chat, where we use producer and consumer.
+producer produces
+
+*.A producer consumer problem is an implementation where the producer gets to produce,
+n no.of.threads and the consumer is to consume each and every thread from the producer.
+
+*.However in the thread implementation, our thread execution is not predictable.
+*.Hence, the consumer tends to consume the producer thread more than once, or miss the 
+producer thread.
+
+*.In simple words, producer produces each threads, and consumer should consume each specific
+thread.
+E.g:ex93.java
+
+*.To regulate these functionality, we use wait and notify();
+
+*.Producer should notify to consumer that a thread is created.
+*.Consumer should process and producer goes to wait(), after consumer finishes, it notifies
+to producer and goes to wait.
+
+*.we achieved this in eg:ex94.java
+
+Java Collection:
+        ->Java Collections can achieve all the operations that you perform on data such as
+        searching,sorting,insertion,manipulation,and deletion.
+
+        ->Interface: list, set, map,;queue,deque;
+        ->classes:ArrayList,vector,LinkedList,PriorityQueue,Hashset,LinkedHashSet,Treeset;
+
+        list-data with duplicate .
+        set - data without duplicate.
+        map- key with values;
+
+        linkedlist-ordered structure;
+        tree-sorted data/ascending;
+        hash-unordered data;
+
+Diagram:
+
+                                        Iterable
+                                           |
+                                           |
+                  _ ____________________collection_____________
+                  |                        |                  |
+                  |                        |                  |
+                list                    queue                 set
+                1)ArrayList             1)PriorityQueue       1)Hashset
+                2)Linked list           2)dequeue             2)LinkedHashset
+                3)vector                3)Array Dequeue       3)sortedset
+                        4)stack                                   4)Treeset
+
+
+ArrayList:
+->allows duplicate element,maintains insertion order, non synchronized
+
+->we can use iterater for printing each element
+exs.java
+Methods;
+->subList
+->contains
+->.addAll()
+->.get(index);
+->.remove(int index);
+->.set(index,replacedata);
+
+refer:exs.java
+
+Linked list:
+->It can contain duplicate elements;
+->Maintains insertion order;
+->Non synchronized;
+->can do stack and queue implementation;
+eg:ex96.java
+
+Vector:
+->dynamic array to store the data elements.
+->synchronized data;
+ex97.java
+
+Stack:
+->subclass of vector;
+->LIFO;
+->push(),peek(),pop();
+ex98.java
+
+SET: Always removes duplicate values;
+Hashset:
+->Implements set Interface;
+->Duplicate values are removed.
+->Null elements are allowed.
+ex99.java
+
+
+TreeSet:
+->No duplicate.
+->No Null elements;
+->Non synchronized;
+->Maintains ascending order;
+ex100.java
+
+LinkedHashSet:
+->No duplicates;
+->Allows null elements;
+->Non synchronized;
+->Maintains insertion order;
+
+Map Interface:
+=============
+
+->Map stores data in pairs(key,value);
+->Always contains unique keys
+->values maybe duplicate.
+->All map operations are performed based on key;
+
+1)HashMap:
+->Implements map interface.
+->Stores element based on hashtable.
+
+(key,value) it is considered as one set here.
+Method:
+->.put()
+->.remove()
+ex101.java
+
+2)LinkedHashMap:
+->Contains unique element;
+->may have one null key and multiple null values.
+->non synchronized.
+->maintains insertion order
+ex102.java
+
+3)Treemap:
+->contains unique elements.
+->cannot have null key but have multiple null values;
+->non synchronized
+->ascending order
+
+HashTable:
+===========
+
+->key-value pair,
+->No null value and no null key.
+->unique elements.
+->synchronized.
+->The initial default capacity of hashtable is 11//for java 11
+ex103.java
+
+Comparator:
+============
+Like overriding toString():
+we can use comparator to manually compare elements by how which we have to compare;
+
+
+=======================================================================================
+<27/04/23>
+
+Difference between comparable and comparator;
+*.comparable follows implementation of compare in the respective wrapper classes.
+*.comparator allows user/programmer to deploy their own implementation of sorting.
+
+Default arraysort:
+Refer:ex104.java
+
+*.we can also override comparable classes like we did in toString() etc..but we have 
+to override each classes in comparable classes.
+
+//suppose we have to sort based on second digit:so we use comparator
+use comparator override compare 1 means swap, -1 means not swap;
+use: collection.sort(arraylist_name,Comparator_name);
+
+refer:ex105.java
+
+String sort based on second char:
+ex106.java
+
+//manually declaring parameters in arraylist by giving its type as class and sorting based on experience;
+ex107.java
+======================================================================================================================
+<28/04/23>
+
+
+Java 8 feature update:
+========================
+
+1)Lambda function.
+2)Functional interface.
+3)Interface methods.(Added static and normal methods not only abstract methods);
+4)Streams API.
+5)Method reference.
+
+
+Interface in java:
+refer:ex108.java
+
+->Interface can be created by three methods:
+=============================================
+
+1.Direct method:
+        ->Implementing an interface for a class, using the obj of that class, we can 
+        implement it.
+2.Anonymous inner class:
+        ->using anonymous inner class for directly creating obj of the interface.
+3.Mixed method:
+        ->creating an obj for interface but with space of class implementing it.
+
+E.g:ex109.java
+
+->Direct method in interface:
+Method resoultion:
+        ->dis is in interface; but space is created for class B;This is method Resolution.
+
+        ->If a method is in interface and class implementing interface, then calling that 
+        method will execute the code in class, bcoz class is used for space.
+eg:ex110.java
+
+->Implementation of interface with 1 and 3 method:
+eg:ex111.java
+
+Implementation of interface:
+===========================
+->using its anonymous class with interface objects.
+refer:ex112.java
+
+Lambda function:
+ex113.java
+
+Functional interface:
+        ->An interface with only one abstract method has a member.
+        without return type:
+        refer:ex114.java
+        with return type:
+        refer:ex115.java
+
+Enhanced Foreach loop:
+        ->Foreach is enhanced by lambda in java 8;
+        syntax:
+        collectionname.forEach(variable->sout(variable));
+
+        ->This foreach uses consumer interface to implement for each loop;
+
+        Note:
+        ->The Foreach implements a functional interface from java.util.function.Consumer<? super T>
+         default void forEach(Consumer<? super T){
+                Objects.requireNonNull(action);
+                for(T t:this){
+                        action.accept(t);
+                }
+         }
+
+         @FunctionalInterface
+         public interface Consumer<T>{
+                void accept(T t);
+         }
+refer:ex116.java
+
+================================================================================================
+<3/5/23>
+Java time:
+        ->Does the work of java.util.Date,.Calender() class in java.time;
+        ->package for data and time from java 8;
+classes in java.time.*:
+        ->LocalDate;
+        ->LocalTime;
+        ->LocalDateTime;
+        ->ZonedDateTime;
+
+        Properties:
+                *.These classes aren't mutable;
+
+        Methods:
+        ->now()//gets the value at now;
+        ->of()//used to create manually; - there is so many parameter inside the of method;
+
+        Refer:ex119.java
+
+        *.ZonedDateTime:
+                It is a class which is used to convert a particular time to a different time zone;
+        *.ZoneId:
+                This class is a place where we use to enter a specific time zone in string.
+
+                syntax:ZonedDateTime zdt=ZonedDateTime.of(LocalDateTime ldt,ZoneId.of("Timezone"));
+
+        *.plusDate():
+                This method is used to add days to the date;
+                *.We can also use this for month, years based on the parameters.
+        
+        *.minusDate():
+                This method is used to remove days to the date;
+                It is similar to plusDate():
+                Refer:ex120.java
+
+        *.get..():
+                we can use this method to get various dayofweek, day of month etc...;
+
+        Refer:ex119.java
+
+Date format in java.time:
+========================
+syntax:
+        LocalDate ld=LocalDate.now();
+        DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy.MM.dd");
+        System.out.println(ld.format(dtf));
+refer:ex120.java
+
+
+Simple date format exception:
+============================
+
+refer:ex118.java but use ex120.java
+
+ResourceBundle:
+==============

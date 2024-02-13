@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="randomnum.MyStaticModifiers" id="statObj">
+    	<property name="data" value="100"></property>
+    	<property name="mydata" value="1001"></property>
+    </bean>
+    
+    <bean class="randomnum.RandomNumberGenerator" id="random">
+    	<property name="randomNumber" value="#{T(java.lang.Math).random()}"></property>
+    	<property name="pi" value="#{T(java.lang.Math).PI}"></property>
+    	<property name="dataFromAnotherClass" value="#{T(randomnum.MyStaticModifiers).data}"></property>
+    	<property name="getValueFromAnotherFunction" value="#{T(randomnum.MyStaticModifiers).getMydata()}"></property>
+    </bean>
+    
+
+</beans>

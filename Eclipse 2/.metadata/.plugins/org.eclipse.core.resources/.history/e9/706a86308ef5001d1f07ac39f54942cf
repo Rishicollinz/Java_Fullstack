@@ -1,0 +1,116 @@
+<?php
+include('static/header.php');
+include('static/db.php');
+include('static/sidemenu.php');
+//include('pages-blank.php');
+?>
+
+<main id="main" class="main">
+
+<div class="pagetitle">
+  <h1>Menu</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item">Pages</li>
+      <li class="breadcrumb-item active">Blank</li>
+    </ol>
+  </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Vertical Form</h5>
+              <?php
+// define variables and set to empty values
+$menuname = $footermenu = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $menuname = test_input($_POST["menuname"]);
+  if(isset($_POST["footermenu"])){
+  $footermenu = test_input($_POST["footermenu"]);
+}
+  
+
+  echo($menuname);
+  echo($footermenu);
+
+}
+
+?>
+              <!-- Vertical Form -->
+              <form class="row g-3" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Menu Name</label>
+                  <input type="text" class="form-control" id="inputNanme4" name="menuname">
+                </div>
+                <div class="col-12">
+                <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gridCheck1" name="footermenu">
+                      <label class="form-check-label" for="gridCheck1" >
+                        Footer
+                      </label>
+                </div>
+                </div>
+                
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+
+    </div>
+
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">List of Menu</h5>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Main Menu</th>
+                    <th scope="col">Sub Menu</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Brandon Jacob</td>
+                    <td>Designer</td>
+                    <td>28</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+             
+            </div>
+          </div>
+
+    </div>
+
+    
+  </div>
+</section>
+
+</main><!-- End #main -->
+<?php
+include('static/footer.php');
+?>

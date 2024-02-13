@@ -1,0 +1,11 @@
+Write a Java Code set up for a pizza ordering vendor who maintains three different java class Namely , Order Pizza being driver class,a Pizza class for calculating the bill and a Deluxe class for maintaing the deluxe pizza order 
+
+The tarriff billing is as follow
+1.Base Pizza veg -300 INR
+2.Base Non Veg Pizza-450 INR
+3.Extra Cheese -150 INR
+4.Extra Topping -100 INR
+5.Take away Packing Charges-20INR
+
+Please make sure the system gives a detailed billing to the customer
+

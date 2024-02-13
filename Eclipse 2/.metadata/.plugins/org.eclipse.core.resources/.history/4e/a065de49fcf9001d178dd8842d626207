@@ -1,0 +1,15 @@
+package test;
+import org.junit.jupiter.api.Test;
+
+import com.MessageUtil;
+public class MessageUtilTest {
+	String message="Robert";
+	MessageUtil messageUtil=new MessageUtil(message);
+	
+	@Test
+	public void testSalutationMessage() {
+		
+	}
+	
+
+}

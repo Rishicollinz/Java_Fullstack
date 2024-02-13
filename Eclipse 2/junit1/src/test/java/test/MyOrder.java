@@ -1,0 +1,25 @@
+package test;
+
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.*;
+@TestMethodOrder(OrderAnnotation.class)
+public class MyOrder {
+	
+	@Test
+	@Order(3)
+	public void testMethod1() {
+		System.out.println("One");
+	}
+	@Test
+	@Order(2)
+	public void testMethod2() {
+		System.out.println("Two");
+	}
+	@Test
+	@Order(1)
+	public void testMethod3() {
+		System.out.println("Three");
+	}
+}

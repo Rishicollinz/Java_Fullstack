@@ -1,0 +1,27 @@
+package emp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="empid")
+	int empId;
+	
+	@Column(name="name")
+	String name;
+	
+	@Column(name="first_name")
+	String firstName;
+	
+	@Column(name="first_name")
+	String firstName;
+	
+	
+
+}

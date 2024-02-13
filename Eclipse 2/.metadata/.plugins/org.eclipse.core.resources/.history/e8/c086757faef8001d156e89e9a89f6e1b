@@ -1,0 +1,15 @@
+package com.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class WelcomeService {
+	public int firstMsg() {
+		int z=10;
+		return z;
+	}
+	
+	public String secondMsg() {
+		return "Second Message from welcome service";
+	}
+}

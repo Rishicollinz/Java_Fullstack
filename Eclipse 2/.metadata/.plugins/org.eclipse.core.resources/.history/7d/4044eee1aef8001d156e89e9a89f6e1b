@@ -1,0 +1,16 @@
+package com.service;
+
+import java.sql.Connection;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class WelcomeService {
+	public Connection firstMsg() {
+		Connection con=
+	}
+	
+	public String secondMsg() {
+		return "Second Message from welcome service";
+	}
+}

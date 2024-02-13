@@ -1,0 +1,93 @@
+1)unresolved compilation error:
+    System.out.println("helo"+10-20);
+    because helo+10 is converted to string and when '-' reached , there is no operation
+    for it in string. so error.
+    ->Except subtraction every thing works.
+
+2)Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+        The method print(boolean) in the type PrintStream is not applicable for the arguments ()
+        at Demo.main(Demo.java:85)
+    sol:
+    print() method is not applicable for argument();
+    Empty println() doesn't cause error but empty print() causes error
+
+3)Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+        The method printf(String, Object...) in the type PrintStream is not applicable for the arguments ()    
+
+        at Demo.main(Demo.java:85)
+    sol:
+    Empty printf() error
+
+4)String literal is not properly closed by a double-quote-unresolved compilation;
+    System.out.println("hello"");
+
+    sol:
+    System.out.println("hello\"");
+
+5)Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+        Invalid escape sequence (valid ones are  \b  \t  \n  \f  \r  \"  \'  \\ )
+
+        at Demo.main(Demo.java:91)
+
+        prg:
+        System.out.println("hello \% hii");
+        sol:
+        System.out.println("hello %% hii"); o/p:hello %% hii
+    
+6) % printing in printf:
+% print don't have any problem in println() and print() but it has problem in printf();
+
+prg:
+    System.out.printf("2 out of 10 is 20%");
+
+Error:
+Exception in thread "main" java.util.UnknownFormatConversionException: Conversion = '%'
+        at java.base/java.util.Formatter.parse(Formatter.java:2734)
+        at java.base/java.util.Formatter.format(Formatter.java:2671)
+        at java.base/java.io.PrintStream.format(PrintStream.java:1209)
+        at java.base/java.io.PrintStream.printf(PrintStream.java:1105)
+        at Demo.main(Demo.java:93)
+
+Solution:
+    System.out.printf("2 out of 10 is 20%%");
+
+7)size not enough
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+        The literal 222222222222222222 of type int is out of range
+
+        at size.main(size.java:3)
+        prg:
+        int a=222222222222222222;
+        sol:
+        long a=222222222222222222L;
+
+8)default decimal num are double in java
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+        Type mismatch: cannot convert from double to float
+
+        at size.main(size.java:11)
+
+        prg:float ad=10.25;
+        sol:float ad=10.25f;
+
+9)if variable is repeated in program:
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+        Duplicate local variable b
+
+        at test.main(test.java:5)
+
+        Don't variable with same name twice even with different datatype;
+
+10)'h' gives char cannot be converted to string error
+Type mismatch: cannot convert from char to String
+String s='h';
+ans:String s="h";
+
+11)Input mismatch except in scanner
+when the user given data is not equal data stored by the program datatype.
+
+12)No such element exception:
+
+13)Implicit super constructor employee() is undefined for default constructor. Must define an explicit constructor
+if we declare a default constructor not system, so when we are inheriting the class by other class,
+we should override the default constructor;
